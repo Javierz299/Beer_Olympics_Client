@@ -26,16 +26,17 @@ export class PlayerForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const { full_name, nickname, password } = e.target
+        const { full_name,password } = e.target
             const playerData = {
                 full_name: full_name.value,
-                nickname: nickname.value,
                 password: password.value
             }
 
             axios.post(`${config.API_ENDPOINT}/player/`,playerData)
                 .then(player => this.props.add_player(player.data) )
                 .catch((err) => console.log(err))
+                .then( res => history.replace('/teams'))
+
 
             
     }
@@ -50,10 +51,7 @@ export class PlayerForm extends Component {
                         <label id="full_name" >full name:</label>
                         <input id="full_name" type="text" />
                       </div>
-                      <div>
-                        <label id="nickname" >nickname:</label>
-                        <input  id="nickname" type="text" />
-                      </div>
+        
                       <div>
                         <label id="password" >password:</label>
                         <input  id="password" type="number" />

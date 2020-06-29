@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import PlayerForm from '../containers/PlayerForm'
+import TeamForm from '../containers/TeamForm'
+import Header from '../containers/header'
 
 import history from '../utils/history'
 
@@ -17,8 +19,10 @@ class Routes extends Component {
             <div>
                 
                 <Router history={history}>
+                <Header />
                     <Switch>
                         <Route exact path="/" render={() => <PlayerForm />} />
+                        <Route path="/teams" render={() => <TeamForm />} />
                     </Switch>
                 </Router>
             </div>
