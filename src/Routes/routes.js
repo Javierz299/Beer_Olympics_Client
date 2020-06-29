@@ -9,9 +9,7 @@ import { Router, Route, Switch, Redircect } from 'react-router-dom'
 
 class Routes extends Component {
 
-    componentDidMount(){
-        
-    }
+    
 
 
     render() {
