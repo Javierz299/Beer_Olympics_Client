@@ -2,7 +2,6 @@ import * as ACTION_TYPES from './action_types'
 
 
 export const add_player = (player) =>{
-    console.log('player add',player)
 
     return {
         type: ACTION_TYPES.ADD_PLAYER,
@@ -13,5 +12,18 @@ export const add_player = (player) =>{
 export const fetch_players = () => {
     return {
         type: ACTION_TYPES.FETCH_PLAYERS,
+    }
+}
+
+export const add_team = (team) => {
+    return {
+        type: ACTION_TYPES.ADD_TEAM,
+        payload: team
+    }
+}
+
+export const fetch_teams = () => {
+    return {
+        type: ACTION_TYPES.FETCH_TEAMS
     }
 }

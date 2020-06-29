@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import config from '../config'
 import history from '../utils/history'
-import UserList from '../functional/UserList'
+import PlayerList from '../functional/playerList'
 
 
 import * as ACTIONS from '../store/actions/actions'
@@ -26,10 +26,10 @@ export class PlayerForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const { full_name,password } = e.target
+        const { full_name, } = e.target
             const playerData = {
                 full_name: full_name.value,
-                password: password.value
+                
             }
 
             axios.post(`${config.API_ENDPOINT}/player/`,playerData)
@@ -52,16 +52,13 @@ export class PlayerForm extends Component {
                         <input id="full_name" type="text" />
                       </div>
         
-                      <div>
-                        <label id="password" >password:</label>
-                        <input  id="password" type="number" />
-                      </div>
+                      
                       <button type="submit" >Submit</button>
                 </form>
                 <div>
                     {this.props.players.length > 0 ? 
                     this.props.players.map(p =>
-                        <UserList 
+                        <PlayerList 
                         player={p}
                         key={p.id}
                         />

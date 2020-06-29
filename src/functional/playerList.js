@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserList = (props) => (
+const playerList = (props) => (
 
     <div>
     {console.log(props)}
@@ -8,4 +8,4 @@ const UserList = (props) => (
     </div>
 )
 
-export default UserList
+export default playerList
