@@ -2,7 +2,7 @@ import * as ACTION_TYPES from '../actions/action_types'
 
 
 const initialState = {
-    current_player: null,
+    players: [],
 }
 
 
@@ -11,7 +11,7 @@ const UserReducer = (state = initialState, action) => {
         case ACTION_TYPES.ADD_PLAYER:
             return {
                 ...state,
-                current_player: action.payload,
+                players: action.payload,
             }
         default: 
         return state

@@ -9,3 +9,9 @@ export const add_player = (player) =>{
         payload: player
     }
 }
+
+export const fetch_players = () => {
+    return {
+        type: ACTION_TYPES.FETCH_PLAYERS,
+    }
+}

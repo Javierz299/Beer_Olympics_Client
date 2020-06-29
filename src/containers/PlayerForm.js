@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import config from '../config'
+import history from '../utils/history'
+import UserList from '../functional/UserList'
 
 
 import * as ACTIONS from '../store/actions/actions'
@@ -10,9 +12,17 @@ import * as ACTIONS from '../store/actions/actions'
 
 export class PlayerForm extends Component {
 
-    state = {
-        players: [],
+    
+
+    componentDidMount(){
+        axios.get(`${config.API_ENDPOINT}/player/allplayers`)
+            .then(res => this.props.add_player(res.data))
+            .catch((err) => console.log(err))
+
+            console.log(this.props.players)
     }
+
+    
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -24,10 +34,10 @@ export class PlayerForm extends Component {
             }
 
             axios.post(`${config.API_ENDPOINT}/player/`,playerData)
-                .then(res => console.log(res))
+                .then(player => this.props.add_player(player.data) )
                 .catch((err) => console.log(err))
-        
 
+            
     }
 
 
@@ -50,9 +60,24 @@ export class PlayerForm extends Component {
                       </div>
                       <button type="submit" >Submit</button>
                 </form>
-                {/* {<UserList />} */}
+                <div>
+                    {this.props.players.length > 0 ? 
+                    this.props.players.map(p =>
+                        <UserList 
+                        player={p}
+                        key={p.id}
+                        />
+                    ) : null
+                    }
+                </div>
             </div>
         )
+    }
+}
+
+function mapStateToProps(state){
+    return {
+        players: state.player_reducer.players
     }
 }
 
@@ -64,4 +89,4 @@ function mapDispatchToProps(dispatch){
 
 
 
-export default connect(null,mapDispatchToProps)(PlayerForm)
+export default connect(mapStateToProps,mapDispatchToProps)(PlayerForm)
