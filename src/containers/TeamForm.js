@@ -1,31 +1,27 @@
 import React, { Component } from 'react'
 
 export class TeamForm extends Component {
+
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+
+        console.log('reached')
+    }
+
     render() {
         return (
+            //submit team. once team is submited should be able to render one slot per name added 
+            // up to four total. ex.  mexico add.   mexico will render with one slot then another open slot after submission
             <div>
                 team sign-up
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <label id="country" >Country</label>
                         <input id="country" type="text" />
                     </div>
-                    <div>
-                        <label id="player_one" >player one</label>
-                        <input id="player_one" type="text" />
-                    </div>
-                    <div>
-                        <label id="player_two" >player two</label>
-                        <input id="player_two" type="text" />
-                    </div>
-                    <div>
-                        <label id="player_three" >player three</label>
-                        <input id="player_three" type="text" />
-                    </div>
-                    <div>
-                        <label id="player_four" >player four</label>
-                        <input id="player_four" type="text" />
-                    </div>
+                    
+                    <button type="submit" >submit</button>
                 </form>
             </div>
         )
