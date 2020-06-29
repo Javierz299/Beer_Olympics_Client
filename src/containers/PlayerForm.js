@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import config from '../config'
+
 
 import * as ACTIONS from '../store/actions/actions'
 
@@ -21,7 +23,11 @@ export class PlayerForm extends Component {
                 password: password.value
             }
 
-            console.log(playerData)
+            axios.post(`${config.API_ENDPOINT}/player/`,playerData)
+                .then(res => console.log(res))
+                .catch((err) => console.log(err))
+        
+
     }
 
 
