@@ -2,6 +2,7 @@ import * as ACTION_TYPES from '../actions/action_types'
 
 const initialState = {
     countries: [],
+    
 }
 
 const TeamReducer = (state = initialState, action) => {

@@ -40,6 +40,15 @@ export class TeamForm extends Component {
 
     }
 
+    handleTeamClick = () => {
+        console.log('clicked')
+        return (
+            <div>
+                <input type="text" />
+            </div>
+        )
+    }
+
     render() {
         return (
             //submit team. once team is submited should be able to render one slot per name added 
@@ -58,6 +67,7 @@ export class TeamForm extends Component {
                     {this.props.countries.length > 0 ?
                     this.props.countries.map(c =>
                         <TeamList 
+                        handleTeamClick={this.handleTeamClick}
                         country={c}
                         key={c.id}
                         />
