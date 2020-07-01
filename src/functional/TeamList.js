@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 const handleListSubmit = (e) => {
     e.preventDefault()
-    console.log('clicked')
+    console.log('clicked',e.target.id.value)
 
 
     // axios.patch(`${config.API_ENDPOINT}/update/`)
@@ -22,16 +22,17 @@ const TeamList = (props) => (
      <div>
         <h2>{props.country.team_name}</h2>
         {props.countries.length > 0 ?
-          props.countries.map(tm => 
-          (
-          <div key={tm.id}>
-                <h3>{tm.player_name ? tm.player_name : 'open'}</h3>
-           </div>
-            )
-        ) && <form onSubmit={handleListSubmit}>
-        <input type="text" placeholder="player name" />
-        <button type="submit">add player</button>
-    </form> : null
+          
+          <div key={props.country.id}>
+                <form onSubmit={handleListSubmit}>
+                    <input id={props.country.id}type="text" value={props.country.player_name}/>
+                    <input  id={props.country.id} type="text" value={props.country.playertwo_name}/>
+                    <input  id={props.country.id} type="text" value={props.country.playerthree_name}/>
+                    <input  id={props.country.id} type="text" value={props.country.playerfour_name}/>
+                    <br/>
+                    <button type="submit">add players</button>
+                </form>
+           </div> : null
 
         }
     </div>
