@@ -6,7 +6,9 @@ import { connect } from 'react-redux'
 
 const handleListSubmit = (e) => {
     e.preventDefault()
-    console.log('clicked',e.target.id.value)
+    console.log('player_name',e.target.player_name.value)
+    console.log('playertwo_name',e.target.playertwo_name.value)
+
 
 
     // axios.patch(`${config.API_ENDPOINT}/update/`)
@@ -24,13 +26,14 @@ const TeamList = (props) => (
         {props.countries.length > 0 ?
           
           <div key={props.country.id}>
+              {console.log(props.country.id)}
                 <form onSubmit={handleListSubmit}>
-                    <input id={props.country.id}type="text" value={props.country.player_name}/>
-                    <input  id={props.country.id} type="text" value={props.country.playertwo_name}/>
-                    <input  id={props.country.id} type="text" value={props.country.playerthree_name}/>
-                    <input  id={props.country.id} type="text" value={props.country.playerfour_name}/>
+                    <input name="player_name" id={props.country.id} type="text" value={props.country.player_name}/>
+                    <input name="playertwo_name" id={props.country.id} type="text" value={props.country.playertwo_name}/>
+                    <input name="playerthree_name" id={props.country.id} type="text" value={props.country.playerthree_name}/>
+                    <input name="playerfour_name" id={props.country.id} type="text" value={props.country.playerfour_name}/>
                     <br/>
-                    <button type="submit">add players</button>
+                    <button type="submit" onClick={() => console.log("id",props.country.id)} >add players</button>
                 </form>
            </div> : null
 
