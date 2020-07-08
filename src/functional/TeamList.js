@@ -45,8 +45,17 @@ class TeamList extends Component {
             player_name: e.target.player_name.value,
             playertwo_name: e.target.playertwo_name.value,
             playerthree_name: e.target.playerthree_name.value,
-            playerfour_name: e.target.playertwo_name.value
+            playerfour_name: e.target.playerfour_name.value
         }
+        //console.log("playervalues",Object.entries(teamPlayers))
+
+       for(let [key,value] of Object.entries(teamPlayers)){
+           if(value === ""){
+               teamPlayers[key] = null
+           }
+          
+       }
+       console.log("should be null value",teamPlayers)
         this.makeTeam(teamPlayers)
 
         
@@ -69,7 +78,7 @@ class TeamList extends Component {
                         <input name="playerthree_name" id={this.props.country.id} type="text" defaultValue={this.props.country.playerthree_name ? this.props.country.playerthree_name : null}/>
                         <input name="playerfour_name" id={this.props.country.id} type="text" defaultValue={this.props.country.playerfour_name ? this.props.country.playerfour_name : null}/>
                         <br/>
-                        <button type="submit" onClick={() => this.getTeamId(this.props.country.id)} >add players</button>
+                        <button type="submit" onClick={() => this.getTeamId(this.props.country.id)} >update players</button>
                     </form>
                </div> : null
     
