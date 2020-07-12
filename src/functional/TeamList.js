@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import config from '../config'
 
+import * as ACTIONS from   '../store/actions/actions'
+
 import { connect } from 'react-redux'
 
 
@@ -27,19 +29,19 @@ class TeamList extends Component {
     }
 
     makeTeam = (team) => {
-        console.log(team)
-        console.log(this.state.currentTeam)
-
         axios.patch(`${config.API_ENDPOINT}/team/update/${this.state.currentTeam}`,team)
-            .then(res => console.log(res))
             .catch((err) => console.log(err))
     }
+
+    // componentDidMount(){
+    //     axios.get(`${config.API_ENDPOINT}/player/allplayers`)
+    //     .then(res => this.props.add_player(res.data))
+    // }
 
     handleListSubmit = (e) => {
         console.log("e",e)
         e.preventDefault()
-        console.log('player_name',e.target.player_name.value)
-        console.log('playertwo_name',e.target.playertwo_name.value)
+        
        
         const teamPlayers = {
             player_name: e.target.player_name.value,
@@ -47,7 +49,7 @@ class TeamList extends Component {
             playerthree_name: e.target.playerthree_name.value,
             playerfour_name: e.target.playerfour_name.value
         }
-        //console.log("playervalues",Object.entries(teamPlayers))
+        
 
        for(let [key,value] of Object.entries(teamPlayers)){
            if(value === ""){
@@ -65,7 +67,7 @@ class TeamList extends Component {
     render() {
         return (
             <div>
-            {console.log(this.props.countries)}
+            {console.log("this",this.props.countries)}
          <div>
             <h2>{this.props.country.team_name}</h2>
             {this.props.countries.length > 0 ?
@@ -98,4 +100,10 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps)(TeamList)
+function mapDispatchToProps(dispatch){
+    return {
+        add_player: (player) => dispatch(ACTIONS.add_player(player))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeamList)

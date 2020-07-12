@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import PlayerForm from '../containers/PlayerForm'
 import TeamForm from '../containers/TeamForm'
+import GameForm from '../containers/GameForm'
 import Header from '../containers/header'
 
 import history from '../utils/history'
@@ -22,6 +23,7 @@ class Routes extends Component {
                     <Switch>
                         <Route exact path="/" render={() => <PlayerForm />} />
                         <Route path="/teams" render={() => <TeamForm />} />
+                        <Route path="/games" render={() => <GameForm />} />
                     </Switch>
                 </Router>
             </div>

@@ -19,7 +19,7 @@ export class PlayerForm extends Component {
             .then(res => this.props.add_player(res.data))
             .catch((err) => console.log(err))
 
-            console.log(this.props.players)
+            console.log(this.props.players.full_name)
     }
 
     

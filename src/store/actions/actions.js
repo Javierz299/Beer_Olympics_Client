@@ -27,3 +27,16 @@ export const fetch_teams = () => {
         type: ACTION_TYPES.FETCH_TEAMS
     }
 }
+
+export const add_game = (game) => {
+    return {
+        type: ACTION_TYPES.ADD_GAME,
+        payload: game
+    }
+}
+
+export const fetch_games = () => {
+    return {
+        type: ACTION_TYPES.FETCH_GAMES,
+    }
+}
