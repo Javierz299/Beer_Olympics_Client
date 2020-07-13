@@ -12,9 +12,7 @@ const GameReducer = (state = initialState, action) => {
                 games: action.payload
             }
             default:
-                return {
-                    ...state,
-                }
+                return state  
     }
 }
 

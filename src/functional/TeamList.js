@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import config from '../config'
 
-import * as ACTIONS from   '../store/actions/actions'
+import * as ACTIONS from '../store/actions/actions'
 
 import { connect } from 'react-redux'
 

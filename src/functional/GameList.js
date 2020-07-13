@@ -10,15 +10,16 @@ class GameList extends Component {
     
     render(){
         return (
-            <div>gamelist</div>
+            <div>game sign-up</div>
         )
     }
 }
 
 function mapStateToProps(state){
     return {
-        // games: state.game_reducer.games,
-        // gameId: state.games_reducer.gameId
+        games: state.game_reducer.games,
+        gameId: state.games_reducer.gameId,
+        players: state.player_reducer.players
     }
 }
 

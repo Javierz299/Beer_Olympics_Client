@@ -8,7 +8,7 @@ import * as ACTIONS from '../store/actions/actions'
 
 import { connect } from 'react-redux'
 
-export class TeamForm extends Component {
+class TeamForm extends Component {
 
     componentDidMount(){
         axios.get(`${config.API_ENDPOINT}/team/allteams`)
@@ -40,14 +40,7 @@ export class TeamForm extends Component {
 
     }
 
-    handleTeamClick = () => {
-        console.log('clicked')
-        return (
-            <div>
-                <input type="text" />
-            </div>
-        )
-    }
+
 
     render() {
         return (
@@ -67,7 +60,6 @@ export class TeamForm extends Component {
                     {this.props.countries.length > 0 ?
                     this.props.countries.map(c =>
                         <TeamList 
-                        handleTeamClick={this.handleTeamClick}
                         country={c}
                         key={c.id}
                         />

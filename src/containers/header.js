@@ -9,6 +9,7 @@ export class header extends Component {
                 <div>
                 <Link to="/"><button>players</button></Link>
                 <Link to="/teams"><button>teams</button></Link>
+                <Link to="/games"><button>games</button></Link>
 
                 </div>
             </div>
